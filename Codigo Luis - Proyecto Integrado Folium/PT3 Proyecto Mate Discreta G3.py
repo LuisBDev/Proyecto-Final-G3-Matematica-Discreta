@@ -16,16 +16,16 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.simplefilter("ignore", UserWarning)
 
 
-place_name = input("Introducir area_especifica: ")
-coordenadas_area = Localizar.area_especifica(place_name)
+area_especifica = input("Introducir area_especifica: ")
+coordenadas_area = Localizar.area_especifica(area_especifica)
 print(f"Coordenadas area_especifica: {coordenadas_area[0],coordenadas_area[1]}")
 
 # recuperar el grafo
-graph = ox.graph_from_place(place_name, network_type='drive')
+graph = ox.graph_from_place(area_especifica, network_type='drive')
 
 
 # Obtener el polígono del área de interés
-place_polygon = ox.geocode_to_gdf(place_name)
+place_polygon = ox.geocode_to_gdf(area_especifica)
 
 # Volver a proyectar el polígono a un CRS local proyectado
 place_polygon = place_polygon.to_crs(epsg=3067)
@@ -138,7 +138,7 @@ route_geom = gpd.GeoDataFrame([[route_line]], geometry='geometry', crs=edges_pro
 #Aqui se puede agregar mas tags.
 tags = {'building': True}
 
-buildings = ox.geometries_from_place(place_name, tags)
+buildings = ox.geometries_from_place(area_especifica, tags)
 
 buildings_proj = buildings.to_crs(CRS(edges_proj.crs))
 
@@ -170,7 +170,7 @@ ctx.add_basemap(ax, crs=buildings_proj.crs, source=ctx.providers.OpenStreetMap.M
 ############################################# Folium
 
 ox.config(log_console=True, use_cache=True)
-drawFolium.save_map(coordenadas_area,coordenadas_inicio,coordenadas_destino)
+drawFolium.save_map(coordenadas_area,coordenadas_inicio,coordenadas_destino,area_especifica)
 
 ax.set_axis_off()
 plt.title("Optimización de Trayectos")

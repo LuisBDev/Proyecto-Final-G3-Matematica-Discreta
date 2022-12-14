@@ -43,7 +43,7 @@ class Localizar():
 			print("\nSeleccione un valor correcto..")
 			seleccionFinal = int(input("\nSeleccionar N° de Sugerencia -> : "))
 
-		latitud = myjson["features"][seleccionFinal-1]["geometry"]["coordinates"][1]
+		latitud = myjson["features"][seleccionFinal-1]["geometry"]["coordinates"][	1]
 		longitud = myjson["features"][seleccionFinal-1]["geometry"]["coordinates"][0]
 		coordenadas = [latitud,longitud]
 		
@@ -86,7 +86,7 @@ class Localizar():
 		return sugerencias[seleccionFinal-1],coordenadas
 
 class drawFolium():
-	def save_map(coordenadas_area,coordenadas_inicio,coordenadas_destino):
+	def save_map(coordenadas_area,coordenadas_inicio,coordenadas_destino,area_especifica):
 		G = ox.graph_from_point(coordenadas_area, dist=5000, simplify=True, network_type="drive")
 		origin_point = (coordenadas_inicio[0],coordenadas_inicio[1]) 
 		destination_point = (coordenadas_destino[0],coordenadas_destino[1]) 
@@ -99,4 +99,4 @@ class drawFolium():
 
 
 		mapatest = ox.plot_route_folium(G, routeFolium, popup_attribute='length',tiles="OpenStreetMap", color='red')
-		mapatest.save("testmapa.html")
+		mapatest.save(f"{area_especifica}.html")

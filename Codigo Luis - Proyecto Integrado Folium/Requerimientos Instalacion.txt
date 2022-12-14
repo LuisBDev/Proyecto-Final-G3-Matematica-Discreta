@@ -1,0 +1,15 @@
+pip install osmnx
+pip install contextily
+pip install scipy
+pip install scikit-learn
+
+Hospital Nacional Guillermo Almenara Irigoyen
+Institucion Educativa Isabel La Catolica, Lima
+
+----------------------------------------------------------
+
+La Molina, Lima, Peru
+Universidad Nacional Agraria La Molina, Lima, Peru
+Ovalo La Fontana, La Molina, Peru
+Molicentro, La Molina, Lima, Peru
+Jardines de La Paz, La Molina
