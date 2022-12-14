@@ -27,7 +27,7 @@ class Localizar():
 		resp = requests.get(url, headers=headers)
 		myjson = resp.json()
 
-		print(myjson)
+		#print(myjson) Imprimir contenido del json, features, properties, coordinates
 
 		for i in range(len(myjson["features"])):
 			if(myjson["features"][i]["properties"]["country"]=="Peru"):
@@ -60,7 +60,7 @@ class Localizar():
 		resp = requests.get(url, headers=headers)
 		myjson = resp.json()
 
-		print(myjson)
+		#print(myjson) Imprimir contenido del json, features, properties, coordinates
 
 		for i in range(len(myjson["features"])):
 			if(myjson["features"][i]["properties"]["country"]=="Peru"):
