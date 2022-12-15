@@ -8,17 +8,21 @@ from pyproj import CRS
 import contextily as ctx
 import warnings
 from shapely.geometry import LineString, Point
-from Localizacion import *
 import folium
+
+from Localizacion import *
+from Dijkstra import *
 
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.simplefilter("ignore", UserWarning)
 
-
-area_especifica = input("Introducir area_especifica: ")
-coordenadas_area = Localizar.area_especifica(area_especifica)
-print(f"Coordenadas area_especifica: {coordenadas_area[0],coordenadas_area[1]}")
+def obtener_area_especifica():
+	global area_especifica
+	area_especifica = input("Introducir area_especifica: ")
+	global coordenadas_area
+	coordenadas_area = Localizar.area_especifica(area_especifica)
+	print(f"Coordenadas area_especifica: {coordenadas_area[0],coordenadas_area[1]}")
 
 def proyectar_grafo():
 	# recuperar el grafo
@@ -56,7 +60,7 @@ def proyectar_grafo():
 
 def input_origen():
 	#Pedir al usuario que ingrese el nodo de inicio.
-	inicio = input("Introducir el nodo de inicio: ")
+	inicio = input("\nIntroducir el nodo de inicio\n\t --> ")
 
 	#Mostramos las sugerencias de búsqueda y guardamos tanto como las coordenadas y el nombre del nodo de inicio.
 	global nodo_inicio,coordenadas_inicio
@@ -77,7 +81,7 @@ def input_origen():
 
 def input_destino():
 	#Pedir al usuario que ingrese el nodo de destino.
-	destino = input("Introducir el nodo de destino: ")
+	destino = input("\nIntroducir el nodo de destino\n\t --> ")
 
 	#Mostramos las sugerencias de búsqueda y guardamos tanto como las coordenadas y el nombre del nodo de destino.
 	global nodo_destino,coordenadas_destino
@@ -181,25 +185,45 @@ def plot_matplotlib():
 	plt.title("Optimización de Trayectos")
 	plt.show()
 
-	
+
 def plot_folium():
 	ox.config(log_console=True, use_cache=True)
 	drawFolium.save_map(coordenadas_area,coordenadas_inicio,coordenadas_destino,area_especifica)
 
-proyectar_grafo()
-input_origen()
-input_destino()
-ubicar_nearest_nodes()
-filtrar_nodos()
-check_path()
-crear_dataframe_route()
-plottear_elementos()
+def implementacion_vial():
+	obtener_area_especifica()
+	proyectar_grafo()
+	input_origen()
+	input_destino()
+	ubicar_nearest_nodes()
+	filtrar_nodos()
+	check_path()
+	crear_dataframe_route()
+	plottear_elementos()
 
-############################################# Folium
+	############################################# Folium
 
-plot_folium()
+	plot_folium()
 
-############################################# Matplotlib
+	############################################# Matplotlib
 
-plot_matplotlib()
+	plot_matplotlib()
 
+def graph_floyd_warshall():
+	#Codigo floyd_warshall
+	print(f"Codigo floyd warshall")
+
+def graph_dijkstra():
+	#Codigo dijkstra
+	display_dijkstra.main()
+
+def menu_algoritmos():
+	opcion = int(input("Seleccionar el grafo a implementar:\n1. Floyd Warshall\n2. Dijkstra\n3. Implementacion\n\t---> "))
+	if(opcion==1):
+		graph_floyd_warshall()
+	elif(opcion==2):
+		graph_dijkstra()
+	elif(opcion==3):
+		implementacion_vial()
+
+menu_algoritmos()
