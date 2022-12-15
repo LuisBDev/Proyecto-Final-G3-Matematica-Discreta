@@ -20,57 +20,58 @@ class Localizar():
 
 
 	def area_especifica(area):
+
 		sugerencias = []
-		url = (f"https://api.geoapify.com/v1/geocode/autocomplete?text={area}&apiKey=2e9ba25ff3ca47d0b02d81540edbafdd")
-		headers = CaseInsensitiveDict()
-		headers["Accept"] = "application/json"
-		resp = requests.get(url, headers=headers)
-		myjson = resp.json()
-
+		contador = 0
 		#print(myjson) Imprimir contenido del json, features, properties, coordinates
+		while (len(sugerencias)==0):
 
-		for i in range(len(myjson["features"])):
-			if(myjson["features"][i]["properties"]["country"]=="Peru"):
-				address_line1 = myjson["features"][i]["properties"]["address_line1"]
-				formatted = myjson["features"][i]["properties"]["formatted"]
-				print(f"\nSugerencia N°{i+1}: --> {formatted}")
-				sugerencias.append(address_line1)
+			if(len(sugerencias)==0 and contador>0):
+				area = input("\n\tIntroducir un area_especifica --> ")
 
+			myjson = search_api(area)
+			for i in range(len(myjson["features"])):
+				if(myjson["features"][i]["properties"]["country"]=="Peru"):
+					address_line1 = myjson["features"][i]["properties"]["address_line1"]
+					formatted = myjson["features"][i]["properties"]["formatted"]
+					print(f"\nSugerencia N°{i+1}: --> {formatted}")
+					sugerencias.append(address_line1)
 
-		seleccionFinal = int(input("\nSeleccionar N° de Sugerencia -> : "))
+			contador = contador + 1
+
+		seleccionFinal = int(input("\n\tSeleccionar N° de Sugerencia -> : "))
 
 		while(seleccionFinal>len(sugerencias) or seleccionFinal<0):
-			print("\nSeleccione un valor correcto..")
-			seleccionFinal = int(input("\nSeleccionar N° de Sugerencia -> : "))
+			print("\n\tSeleccione un valor correcto..")
+			seleccionFinal = int(input("\n\tSeleccionar N° de Sugerencia -> : "))
 
-		latitud = myjson["features"][seleccionFinal-1]["geometry"]["coordinates"][	1]
+		latitud = myjson["features"][seleccionFinal-1]["geometry"]["coordinates"][1]
 		longitud = myjson["features"][seleccionFinal-1]["geometry"]["coordinates"][0]
 		coordenadas = [latitud,longitud]
 		
 
-		print(f"\nHas seleccionado la sugerencia {seleccionFinal} para el area especifica.\n")
+		print(f"\n\tHas seleccionado la sugerencia {seleccionFinal} para el area especifica.\n")
 
-		return coordenadas
+		return area,coordenadas
 
-	def busqueda_sugerencias(lugar):
+	def busqueda_sugerencias():
 		sugerencias = []
-		url = (f"https://api.geoapify.com/v1/geocode/autocomplete?text={lugar}&apiKey=2e9ba25ff3ca47d0b02d81540edbafdd")
-		headers = CaseInsensitiveDict()
-		headers["Accept"] = "application/json"
-		resp = requests.get(url, headers=headers)
-		myjson = resp.json()
 
 		#print(myjson) Imprimir contenido del json, features, properties, coordinates
 
-		for i in range(len(myjson["features"])):
-			if(myjson["features"][i]["properties"]["country"]=="Peru"):
-				address_line1 = myjson["features"][i]["properties"]["address_line1"]
-				formatted = myjson["features"][i]["properties"]["formatted"]
-				print(f"\nSugerencia N°{i+1}: --> {formatted}")
-				sugerencias.append(address_line1)
+		while(len(sugerencias)==0):
+			lugar = input("\n\tIntroducir un lugar --> ")
+			myjson = search_api(lugar)
+
+			for i in range(len(myjson["features"])):
+				if(myjson["features"][i]["properties"]["country"]=="Peru"):
+					address_line1 = myjson["features"][i]["properties"]["address_line1"]
+					formatted = myjson["features"][i]["properties"]["formatted"]
+					print(f"\nSugerencia N°{i+1}: --> {formatted}")
+					sugerencias.append(address_line1)
 
 
-		seleccionFinal = int(input("\nSeleccionar N° de Sugerencia -> : "))
+		seleccionFinal = int(input("\n\tSeleccionar N° de Sugerencia -> : "))
 
 		while(seleccionFinal>len(sugerencias) or seleccionFinal<0):
 			print("\nSeleccione un valor correcto..")
@@ -81,7 +82,7 @@ class Localizar():
 		coordenadas = [latitud,longitud]
 		
 
-		print(f"\nHas seleccionado la sugerencia {seleccionFinal} para el nodo.\n")
+		print(f"\n\tHas seleccionado la sugerencia {seleccionFinal} para el nodo.\n")
 
 		return sugerencias[seleccionFinal-1],coordenadas
 
@@ -100,3 +101,12 @@ class drawFolium():
 
 		mapatest = ox.plot_route_folium(G, routeFolium, popup_attribute='length',tiles="OpenStreetMap", color='red')
 		mapatest.save(f"{area_especifica}.html")
+def search_api(lugar):
+
+	url = (f"https://api.geoapify.com/v1/geocode/autocomplete?text={lugar}&apiKey=2e9ba25ff3ca47d0b02d81540edbafdd")
+	headers = CaseInsensitiveDict()
+	headers["Accept"] = "application/json"
+	resp = requests.get(url, headers=headers)
+	myjson = resp.json()
+
+	return myjson

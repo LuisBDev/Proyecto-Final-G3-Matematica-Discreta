@@ -18,10 +18,13 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.simplefilter("ignore", UserWarning)
 
 def obtener_area_especifica():
+
+	print("\n##### [BÚSQUEDA ÁREA ESPECÍFICA.] #####")
+	area = input("\n\tIntroducir area_especifica --> ")
 	global area_especifica
-	area_especifica = input("Introducir area_especifica: ")
 	global coordenadas_area
-	coordenadas_area = Localizar.area_especifica(area_especifica)
+	area_especifica,coordenadas_area = Localizar.area_especifica(area)
+
 	print(f"Coordenadas area_especifica: {coordenadas_area[0],coordenadas_area[1]}")
 
 def proyectar_grafo():
@@ -60,11 +63,11 @@ def proyectar_grafo():
 
 def input_origen():
 	#Pedir al usuario que ingrese el nodo de inicio.
-	inicio = input("\nIntroducir el nodo de inicio\n\t --> ")
 
 	#Mostramos las sugerencias de búsqueda y guardamos tanto como las coordenadas y el nombre del nodo de inicio.
 	global nodo_inicio,coordenadas_inicio
-	nodo_inicio,coordenadas_inicio = Localizar.busqueda_sugerencias(inicio)
+	print("\n##### [BÚSQUEDA DEL NODO DE ORIGEN.] #####")
+	nodo_inicio,coordenadas_inicio = Localizar.busqueda_sugerencias()
 
 	print(coordenadas_inicio) #Imprimir coordenadas del nodo de inicio
 
@@ -81,11 +84,12 @@ def input_origen():
 
 def input_destino():
 	#Pedir al usuario que ingrese el nodo de destino.
-	destino = input("\nIntroducir el nodo de destino\n\t --> ")
 
 	#Mostramos las sugerencias de búsqueda y guardamos tanto como las coordenadas y el nombre del nodo de destino.
 	global nodo_destino,coordenadas_destino
-	nodo_destino,coordenadas_destino = Localizar.busqueda_sugerencias(destino)
+	print("\n##### [BÚSQUEDA DEL NODO DE DESTINO.] #####")
+	nodo_destino,coordenadas_destino = Localizar.busqueda_sugerencias()
+
 	print(coordenadas_destino) #Imprimir coordenadas del nodo de destino
 
 	# Geocodificar el nodo_destino
@@ -211,7 +215,7 @@ def implementacion_vial():
 
 def graph_floyd_warshall():
 	#Codigo floyd_warshall
-	print(f"Codigo floyd warshall")
+	print(f"Codigo floyd warshall por implementar..")
 
 def graph_dijkstra():
 	#Codigo dijkstra
