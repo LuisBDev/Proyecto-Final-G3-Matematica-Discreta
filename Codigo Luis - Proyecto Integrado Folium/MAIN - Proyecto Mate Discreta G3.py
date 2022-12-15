@@ -66,8 +66,8 @@ def input_origen():
 
 	#Mostramos las sugerencias de búsqueda y guardamos tanto como las coordenadas y el nombre del nodo de inicio.
 	global nodo_inicio,coordenadas_inicio
-	print("\n##### [BÚSQUEDA DEL NODO DE ORIGEN.] #####")
-	nodo_inicio,coordenadas_inicio = Localizar.busqueda_sugerencias()
+	inicio = input("\n##### [BÚSQUEDA DEL NODO DE ORIGEN.] #####\n\t --> ")
+	nodo_inicio,coordenadas_inicio = Localizar.busqueda_sugerencias(inicio)
 
 	print(coordenadas_inicio) #Imprimir coordenadas del nodo de inicio
 
@@ -87,8 +87,8 @@ def input_destino():
 
 	#Mostramos las sugerencias de búsqueda y guardamos tanto como las coordenadas y el nombre del nodo de destino.
 	global nodo_destino,coordenadas_destino
-	print("\n##### [BÚSQUEDA DEL NODO DE DESTINO.] #####")
-	nodo_destino,coordenadas_destino = Localizar.busqueda_sugerencias()
+	destino = input("\n##### [BÚSQUEDA DEL NODO DE DESTINO.] #####\n\t --> ")
+	nodo_destino,coordenadas_destino = Localizar.busqueda_sugerencias(destino)
 
 	print(coordenadas_destino) #Imprimir coordenadas del nodo de destino
 

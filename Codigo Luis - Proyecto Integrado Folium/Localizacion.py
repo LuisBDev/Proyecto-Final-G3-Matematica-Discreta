@@ -54,13 +54,16 @@ class Localizar():
 
 		return area,coordenadas
 
-	def busqueda_sugerencias():
+	def busqueda_sugerencias(lugar):
 		sugerencias = []
 
 		#print(myjson) Imprimir contenido del json, features, properties, coordinates
+		contador = 0
+		while (len(sugerencias)==0):
 
-		while(len(sugerencias)==0):
-			lugar = input("\n\tIntroducir un lugar --> ")
+			if(len(sugerencias)==0 and contador>0):
+				lugar = input("\n\tIntroducir un area_especifica --> ")
+
 			myjson = search_api(lugar)
 
 			for i in range(len(myjson["features"])):
@@ -70,6 +73,7 @@ class Localizar():
 					print(f"\nSugerencia N°{i+1}: --> {formatted}")
 					sugerencias.append(address_line1)
 
+			contador = contador + 1
 
 		seleccionFinal = int(input("\n\tSeleccionar N° de Sugerencia -> : "))
 
@@ -101,6 +105,7 @@ class drawFolium():
 
 		mapatest = ox.plot_route_folium(G, routeFolium, popup_attribute='length',tiles="OpenStreetMap", color='red')
 		mapatest.save(f"{area_especifica}.html")
+
 def search_api(lugar):
 
 	url = (f"https://api.geoapify.com/v1/geocode/autocomplete?text={lugar}&apiKey=2e9ba25ff3ca47d0b02d81540edbafdd")
