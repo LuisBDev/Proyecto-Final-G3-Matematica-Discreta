@@ -105,6 +105,7 @@ class drawFolium():
 
 		mapatest = ox.plot_route_folium(G, routeFolium, popup_attribute='length',tiles="OpenStreetMap", color='red')
 		mapatest.save(f"{area_especifica}.html")
+		print(f"\n##### El mapa {area_especifica} ha sido guardado exitosamente! #####")
 
 def search_api(lugar):
 

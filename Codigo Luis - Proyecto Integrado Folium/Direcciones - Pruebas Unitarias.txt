@@ -1,8 +1,4 @@
-Hospital Nacional Guillermo Almenara Irigoyen
-Institucion Educativa Isabel La Catolica, Lima
-
 ----------------------------------------------------------
-
 La Molina, Lima, Peru
 Universidad Nacional Agraria La Molina, Lima, Peru
 Ovalo La Fontana, La Molina, Peru
@@ -15,3 +11,12 @@ Ciudad Universitaria de la Universidad Nacional Mayor de San Marcos
 Plaza San Miguel, Lima, Peru
 
 ----------------------------------------------------------------
+
+San Isidro, Lima, Peru	Sugerencia N° 1.
+ISIL San Isidro, Lima, Peru	Sugerencia N° 1.
+Swissotel Hotel, San Isidro, Lima	Sugerencia N° 1.
+
+-------------------------------------------------------------
+Jesus Maria, Lima, Peru    (Sugerencia N° 2.)
+Campo de Marte Jesus Maria, Lima, Peru (Sugerencia N° 1.)
+Hotel Residencial Alfa, Jesus Maria, Peru (Sugerencia N° 1.)

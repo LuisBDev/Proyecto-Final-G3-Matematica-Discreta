@@ -59,7 +59,7 @@ def proyectar_grafo():
 	# Obtener bordes y nodos
 	global nodes_proj, edges_proj
 	nodes_proj, edges_proj = ox.graph_to_gdfs(graph_proj, nodes=True, edges =True)
-
+	
 
 def input_origen():
 	#Pedir al usuario que ingrese el nodo de inicio.
@@ -222,12 +222,16 @@ def graph_dijkstra():
 	display_dijkstra.main()
 
 def menu_algoritmos():
-	opcion = int(input("Seleccionar el grafo a implementar:\n1. Floyd Warshall\n2. Dijkstra\n3. Implementacion\n\t---> "))
-	if(opcion==1):
-		graph_floyd_warshall()
-	elif(opcion==2):
-		graph_dijkstra()
-	elif(opcion==3):
-		implementacion_vial()
+	opcion = int(input("\nSeleccionar el grafo a implementar:\n\n\t1. Floyd Warshall\n\t2. Dijkstra\n\t3. Implementacion\n\t0. Salir de la aplicacion.\n\n\t\t---> "))
+	while (opcion!=0):
+		if(opcion==1):
+			graph_floyd_warshall()
+		elif(opcion==2):
+			graph_dijkstra()
+		elif(opcion==3):
+			implementacion_vial()
+			os.system("cls")
+
+		opcion = int(input("\nSeleccionar el grafo a implementar:\n\n\t1. Floyd Warshall\n\t2. Dijkstra\n\t3. Implementacion\n\t0. Salir de la aplicacion.\n\n\t\t---> "))
 
 menu_algoritmos()
