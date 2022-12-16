@@ -12,7 +12,7 @@ import folium
 
 from Localizacion import *
 from Dijkstra import *
-from test import *
+from interfazpyqt import *
 
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)

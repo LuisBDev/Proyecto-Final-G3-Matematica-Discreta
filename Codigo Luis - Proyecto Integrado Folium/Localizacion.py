@@ -13,7 +13,7 @@ import folium
 
 import requests
 from requests.structures import CaseInsensitiveDict
-from test import *
+from interfazpyqt import *
 
 from PyQt5.QtWidgets import QApplication, QWidget, QHBoxLayout, QVBoxLayout
 from PyQt5.QtWebEngineWidgets import QWebEngineView # pip install PyQtWebEngine
