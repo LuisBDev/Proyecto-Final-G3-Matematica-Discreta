@@ -1,3 +1,4 @@
+import sys
 import os
 import osmnx as ox
 import networkx as nx
@@ -12,6 +13,11 @@ import folium
 
 import requests
 from requests.structures import CaseInsensitiveDict
+from test import *
+
+from PyQt5.QtWidgets import QApplication, QWidget, QHBoxLayout, QVBoxLayout
+from PyQt5.QtWebEngineWidgets import QWebEngineView # pip install PyQtWebEngine
+
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.simplefilter("ignore", UserWarning)
@@ -92,7 +98,7 @@ class Localizar():
 
 class drawFolium():
 	def save_map(coordenadas_area,coordenadas_inicio,coordenadas_destino,area_especifica):
-		G = ox.graph_from_point(coordenadas_area, dist=5000, simplify=True, network_type="drive")
+		G = ox.graph_from_point(coordenadas_area, dist=5000, simplify=True, network_type="walk")
 		origin_point = (coordenadas_inicio[0],coordenadas_inicio[1]) 
 		destination_point = (coordenadas_destino[0],coordenadas_destino[1]) 
 
@@ -102,10 +108,17 @@ class drawFolium():
 		print('destination_node',destination_node)
 		routeFolium = ox.distance.shortest_path(G, origin_node,destination_node)
 
-
+		#Stamen Terrain
 		mapatest = ox.plot_route_folium(G, routeFolium, popup_attribute='length',tiles="OpenStreetMap", color='red')
 		mapatest.save(f"{area_especifica}.html")
-		print(f"\n##### El mapa {area_especifica} ha sido guardado exitosamente! #####")
+		global area_esp
+		area_esp = area_especifica
+		
+
+	def show_pyqt():
+		display_pyqt.main(area_esp)
+		os.system("cls")
+	
 
 def search_api(lugar):
 
