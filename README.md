@@ -1,6 +1,7 @@
 # Proyecto-Final-G3-Matematica-Discreta
 
 Requerimientos instalación vía pip en el archivo de texto requirements.txt
+
 Instalación: pip install -r requirements.txt
 
 FUNCIONAMIENTO:
@@ -21,8 +22,10 @@ Seleccionar el grafo a implementar:
 #--------------------------------------------------------------------------------------#
 
 Seleccionamos la primera opción para desplegar el funcionamiento de Floyd Warshall.
-Seleccionamos la primera opción para desplegar el funcionamiento de Dijkstra.
-Seleccionamos la primera opción para desplegar el funcionamiento de la Implementación Vial.
+
+Seleccionamos la segunda opción para desplegar el funcionamiento de Dijkstra.
+
+Seleccionamos la tercera opción para desplegar el funcionamiento de la Implementación Vial.
 
 CASO DE USO: (Selección de opción 3 [Implementación Vial])
 Al acceder a la opción 3, nos pedirá un área específica en la cual se trabajará para graficar el mapa.
@@ -127,7 +130,15 @@ Sugerencia N°4: --> Molicentro, La Molina Avenue, La Molina, La Molina 15026, P
 
 ## Seleccionamos el medio de transporte para realizar la ruta.
 
-En qué medio desea transportarse 1. Caminando. 2. Auto. 3. Bicicleta. 0. Salir
+En qué medio desea transportarse
+
+1.  Caminando.
+
+2.  Auto.
+
+3.  Bicicleta.
+
+4.  Salir
 
         --> 2
 
