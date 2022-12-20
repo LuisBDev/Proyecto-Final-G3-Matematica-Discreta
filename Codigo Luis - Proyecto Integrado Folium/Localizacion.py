@@ -10,11 +10,11 @@ import contextily as ctx
 import warnings
 from shapely.geometry import LineString, Point
 import folium
-
 import requests
 from requests.structures import CaseInsensitiveDict
-from interfazpyqt import *
+import sys
 
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QHBoxLayout, QVBoxLayout
 from PyQt5.QtWebEngineWidgets import QWebEngineView # pip install PyQtWebEngine
 
@@ -23,8 +23,6 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.simplefilter("ignore", UserWarning)
 
 class Localizar():
-
-
 	def area_especifica(area):
 
 		sugerencias = []
@@ -97,8 +95,8 @@ class Localizar():
 		return sugerencias[seleccionFinal-1],coordenadas
 
 class drawFolium():
-	def save_map(coordenadas_area,coordenadas_inicio,coordenadas_destino,area_especifica):
-		G = ox.graph_from_point(coordenadas_area, dist=5000, simplify=True, network_type="walk")
+	def save_map(coordenadas_area,coordenadas_inicio,coordenadas_destino,area_especifica,medio):
+		G = ox.graph_from_point(coordenadas_area, dist=5000, simplify=True, network_type=medio)
 		origin_point = (coordenadas_inicio[0],coordenadas_inicio[1]) 
 		destination_point = (coordenadas_destino[0],coordenadas_destino[1]) 
 
@@ -118,7 +116,43 @@ class drawFolium():
 	def show_pyqt():
 		display_pyqt.main(area_esp)
 		os.system("cls")
-	
+
+class display_pyqt():
+    def main(area_especifica):
+        app = QApplication(sys.argv)
+        window = QWidget()
+        window.setWindowTitle('Trayecto mínimo - Implementación Dijkstra Algorithm - Grupo 3')
+
+        # create a QWebEngineView widget and load the HTML file
+        view = QWebEngineView()
+
+        # read the HTML file and set it as the content of the QWebEngineView
+        with open(f'{area_especifica}.html', 'r') as f:
+            html = f.read()
+
+        view.setHtml(html)
+
+        # set the size of the QWebEngineView widget
+        view.setFixedSize(1340, 760)
+
+        # create a vertical layout and add the QWebEngineView widget
+        layout = QVBoxLayout(window)
+        layout.addWidget(view)
+        # center the QWebEngineView widget in the layout
+        layout.setAlignment(view, Qt.AlignCenter)
+
+
+        # show the main window
+        window.show()
+
+        # start the application event loop
+        try:
+            sys.exit(app.exec_())
+        except SystemExit:
+            print('Cerrando Folium...')
+        finally:
+            final_menu()
+
 
 def search_api(lugar):
 
@@ -129,3 +163,10 @@ def search_api(lugar):
 	myjson = resp.json()
 
 	return myjson
+
+def final_menu():
+	import MAIN_Proyecto_Mate_Discreta_G3
+	os.system("cls")
+	MAIN_Proyecto_Mate_Discreta_G3.menu_implementacion()
+
+
