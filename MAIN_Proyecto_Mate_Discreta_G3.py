@@ -11,6 +11,7 @@ from shapely.geometry import LineString, Point
 import folium
 from Localizacion import *
 from DijkstraMain import *
+from floyd_warshall_mdv2 import *
 
 
 
@@ -259,7 +260,7 @@ def implementacion_vial():
 
 def graph_floyd_warshall():
     # Codigo floyd_warshall
-    print(f"Codigo floyd warshall por implementar..")
+    display_floyd_warshall.main()
 
 
 
