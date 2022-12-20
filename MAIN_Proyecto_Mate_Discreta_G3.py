@@ -189,7 +189,7 @@ def plottear_elementos():
     global ax
     fig, ax = plt.subplots(figsize=(12, 8))
 
-    # Plot edges and nodes
+    # Plottear nodos y aristas
 
     edges_proj.plot(ax=ax, linewidth=0.75, color='gray')
     nodes_proj.plot(ax=ax, markersize=2, color='gray')
