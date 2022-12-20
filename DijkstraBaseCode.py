@@ -40,11 +40,6 @@ class Grafo:
 
             self.grafica.add_edge(a, b, weight=peso)
 
-    def imprimir(self):
-        for v in self.vertice:
-            print('La distancia del vértice ' + str(v) + ' es ' + str(
-                self.vertice[v].distancia) + ' llegando desde ' + str(self.vertice[v].padre))
-
     def caminos(self, b):
         caminos = []
         actual = b
@@ -86,80 +81,4 @@ class Grafo:
                 inicial = self.menor_peso(no_visitados)
         else:
             return False
-
-'''
-def origen_destino(g):
-    guardar = g
-    print('------------------')
-    print('Recorridos minimos')
-    print('------------------')
-    origen = input('Ingrese la ciudad de origen: ')
-    destino = input('Ingrese la ciudad destino: ')
-    guardar.dijkstra(origen)
-    return print(guardar.caminos(destino))
-
-
-def main():
-    g = Grafo()
-    # Agregar ciudades
-    print('¿Cuantas ciudades desea ingresar?')
-    opc = int(input('--> '))
-    Ciudades = []
-    for i in range(0, opc):
-        ciud = input(f'Ciudad {i + 1}: ')
-        Ciudades.append(ciud)
-    for i in Ciudades:
-        g.agregar_vertice(i)
-
-    # Agregar aristas y peso
-    print('------------------------')
-    print('Agregar aristas y pesos ')
-    print('------------------------')
-    sino = 'S'
-    while sino == 'S' or sino == 's':
-        ciudad1 = input('Ingrese la primera ciudad: ')
-        ciudad2 = input('Ingrese la segunda ciudad: ')
-        distancia = int(input('Ingrese la distancia en kilometros entre las ciudades: '))
-        g.agregar_aristas(ciudad1, ciudad2, distancia)
-        sino = input('¿Desea continuar? (S/N) --> ')
-    g.mostrar_grafica()
-
-    # Caminos minimos
-    sino = 'S'
-    while sino == 'S' or sino == 's':
-        copia = copy.deepcopy(g)
-        origen_destino(copia)
-        sino = input('¿Desea ingresar otros datos? (S/N) --> ')
-  
-    sino = 'S'
-    print('------------------')
-    print('Recorridos minimos')
-    print('------------------')
-    origen = input('Ingrese la ciudad de origen: ')
-    g.dijkstra(origen)
-    while sino == 'S' or sino == 's':
-        destino = input('Ingrese la ciudad destino: ')
-        print(g.caminos(destino))
-        sino = input('¿Desea ingresar otro destino? (S/N) --> ')
-    
-    Ciudades = ['Lima', 'Trujillo', 'Ica', 'Piura', 'Cuzco', 'Arequipa']
-
-    for i in Ciudades:
-        g.agregar_vertice(i)
-
-    g.agregar_aristas('Lima', 'Arequipa', 14)
-    g.agregar_aristas('Lima', 'Trujillo', 7)
-    g.agregar_aristas('Lima', 'Ica', 9)
-    g.agregar_aristas('Trujillo', 'Ica', 10)
-    g.agregar_aristas('Trujillo', 'Piura', 15)
-    g.agregar_aristas('Ica', 'Piura', 11)
-    g.agregar_aristas('Ica', 'Arequipa', 2)
-    g.agregar_aristas('Piura', 'Cuzco', 6)
-    g.agregar_aristas('Cuzco', 'Arequipa', 9)
-
-    g.dijkstra('Lima')
-    print(g.caminos('Arequipa'))
-    g.imprimir()
-    g.mostrar_grafica()
-main()
-'''
+        
