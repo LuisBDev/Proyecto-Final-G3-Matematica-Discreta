@@ -40,8 +40,8 @@ class display_dijkstra():
         print('------------------------')
         print('Agregar aristas y pesos ')
         print('------------------------')
-        sino = 'S'
 
+        sino = 'S'
         while sino == 'S' or sino == 's':
             veri = False
             while veri is False:
@@ -51,7 +51,11 @@ class display_dijkstra():
 
             distancia = int(input('Ingrese la distancia en kilometros entre las ciudades: '))
             g.agregar_aristas(ciudad1, ciudad2, distancia)
+
             sino = input('¿Desea continuar? (S/N) --> ')
+            while sino not in ['S','s','N','n']:
+                sino = input("Introducir valor correcto: (S/N) --> ")
+
         g.mostrar_grafica()
 
         # Caminos minimos
@@ -60,4 +64,6 @@ class display_dijkstra():
             copia = copy.deepcopy(g)
             origen_destino(copia)
             sino = input('¿Desea ingresar otros datos? (S/N) --> ')
+            while sino not in ['S','s','N','n']:
+                sino = input("Introducir valor correcto: (S/N) --> ")
 

@@ -258,21 +258,17 @@ def implementacion_vial():
     # Matplotlib
 
 
-def graph_floyd_warshall():
-    # Codigo floyd_warshall
-    display_floyd_warshall.main()
-
-
-
 def menu_algoritmos():
     opcion = int(input("\nSeleccionar el grafo a implementar:\n\n\t1. Floyd Warshall\n\t2. Dijkstra\n\t3. Implementacion Vial\n\t0. Salir de la aplicacion.\n\n\t\t---> "))
     while (opcion != 0):
 
         if(opcion == 1):
-            graph_floyd_warshall()
+            display_floyd_warshall.main()
+            os.system("cls")
 
         elif(opcion == 2):
             display_dijkstra.main()
+            os.system("cls")
 
         elif(opcion == 3):
             implementacion_vial()
