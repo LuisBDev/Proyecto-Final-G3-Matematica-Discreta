@@ -263,8 +263,6 @@ def graph_floyd_warshall():
 
 
 
-
-
 def menu_algoritmos():
     opcion = int(input("\nSeleccionar el grafo a implementar:\n\n\t1. Floyd Warshall\n\t2. Dijkstra\n\t3. Implementacion Vial\n\t0. Salir de la aplicacion.\n\n\t\t---> "))
     while (opcion != 0):

@@ -165,8 +165,8 @@ def search_api(lugar):
 	return myjson
 
 def final_menu():
-	import MAIN_Proyecto_Mate_Discreta_G3
+	from MAIN_Proyecto_Mate_Discreta_G3 import menu_implementacion
 	os.system("cls")
-	MAIN_Proyecto_Mate_Discreta_G3.menu_implementacion()
+	menu_implementacion()
 
 
