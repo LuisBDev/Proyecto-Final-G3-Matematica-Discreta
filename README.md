@@ -5,7 +5,7 @@ Instalación: pip install -r requirements.txt
 
 FUNCIONAMIENTO:
 
-Ejecutar MAIN_Proyecto_Mate_Discreta_G3 y se desplgará el siguiente menú:
+Ejecutar MAIN_Proyecto_Mate_Discreta_G3 y se mostrará el siguiente menú:
 
 #--------------------------------------------------------------------------------------#
 
