@@ -8,6 +8,7 @@ FUNCIONAMIENTO:
 Ejecutar MAIN_Proyecto_Mate_Discreta_G3 y se desplgará el siguiente menú:
 
 #--------------------------------------------------------------------------------------#
+
 Seleccionar el grafo a implementar:
 
         1. Floyd Warshall
@@ -40,6 +41,7 @@ Por ejemplo, en area_especifica, podemos introducir: La Molina, Lima, Peru
 ## Se mostrarán algunas sugerencias relacionadas a tu búsqueda:
 
 #--------------------------------------------------------------------------------------#
+
 Sugerencia N°1: --> La Molina, LIM, Peru
 
 Sugerencia N°2: --> Lima, La Molina 15012, Peru
@@ -70,6 +72,7 @@ Coordenadas area_especifica: (-12.0901768, -76.92233779667893)
 
 En este apartado ponemos el punto de inicio para hallar la ruta mas corta.
 (Ejemplo: Ovalo La Fontana, La Molina, Peru)
+
 #--------------------------------------------------------------------------------------#
 
 Sugerencia N°1: --> Óvalo La Fontana, La Molina 012, Peru
@@ -85,6 +88,7 @@ Sugerencia N°1: --> Óvalo La Fontana, La Molina 012, Peru
 Has seleccionado la sugerencia 1 para el nodo.
 
 [-12.07388755, -76.95553541251871]
+
 #--------------------------------------------------------------------------------------#
 
 ##### [BÚSQUEDA DEL NODO DE DESTINO.]
@@ -92,6 +96,7 @@ Has seleccionado la sugerencia 1 para el nodo.
          --> Molicentro, La Molina, Lima, Peru
 
 En este apartado ponemos el punto de destino para hallar la ruta mas corta.
+
 (Ejemplo: Molicentro, La Molina, Lima, Peru)
 
 #--------------------------------------------------------------------------------------#
@@ -109,6 +114,7 @@ Sugerencia N°4: --> Molicentro, La Molina Avenue, La Molina, La Molina 15026, P
         Seleccionar N° de Sugerencia -> : 2
 
 (Escribimos el número de sugerencia de búsqueda 2 por ejemplo).
+
 #--------------------------------------------------------------------------------------#
 
 ## Se mostrará las coordenadas del nodo de destino que elegiste y sus ID's:
