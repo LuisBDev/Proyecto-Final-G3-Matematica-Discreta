@@ -27,8 +27,7 @@ def obtener_area_especifica():
     global coordenadas_area
     area_especifica, coordenadas_area = Localizar.area_especifica(area)
 
-    print(
-        f"Coordenadas area_especifica: {coordenadas_area[0],coordenadas_area[1]}")
+    print(f"Coordenadas area_especifica: {coordenadas_area[0],coordenadas_area[1]}")
 
 def menu_implementacion():
     os.system("cls")
