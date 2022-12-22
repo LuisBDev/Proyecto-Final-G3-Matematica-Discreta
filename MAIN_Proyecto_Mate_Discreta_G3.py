@@ -219,8 +219,7 @@ def plot_background():
     fig, ax = ox.plot_graph_route(graph, route, bbox = bbox, route_linewidth=6, node_size=0, bgcolor=bgcolor,dpi = 300)
     
 def medio_de_transporte():
-    medio = int(input(
-        "\nEn qué medio desea transportarse\n\t1. Caminando.\n\t2. Auto.\n\t3. Bicicleta.\n\t0. Salir\n\n\t--> "))
+    medio = int(input("\nEn qué medio desea transportarse\n\t1. Caminando.\n\t2. Auto.\n\t3. Bicicleta.\n\t0. Salir\n\n\t--> "))
     while (medio != 0):
         os.system("cls")
         if(medio == 1):

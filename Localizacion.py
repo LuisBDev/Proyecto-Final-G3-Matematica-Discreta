@@ -101,12 +101,9 @@ class drawFolium():
 		destination_point = (coordenadas_destino[0],coordenadas_destino[1]) 
 
 		origin_node = ox.distance.nearest_nodes(G, origin_point[1], origin_point[0]) #nearest_nodes recibe en orden longitud,latitud
-		print('origin_node',origin_node)
 		destination_node = ox.distance.nearest_nodes(G, destination_point[1], destination_point[0])
-		print('destination_node',destination_node)
 		routeFolium = ox.distance.shortest_path(G, origin_node,destination_node)
-
-		#Stamen Terrain
+		
 		mapatest = ox.plot_route_folium(G, routeFolium, popup_attribute='length',tiles="OpenStreetMap", color='red')
 		mapatest.save(f"{area_especifica}.html")
 		global area_esp
@@ -128,9 +125,7 @@ class display_pyqt():
             html = f.read()
 
         view.setHtml(html)
-
         view.setFixedSize(1340, 760)
-
         layout = QVBoxLayout(window)
         layout.addWidget(view)
         layout.setAlignment(view, Qt.AlignCenter)
@@ -158,6 +153,6 @@ def search_api(lugar):
 def final_menu():
 	from MAIN_Proyecto_Mate_Discreta_G3 import menu_implementacion
 	os.system("cls")
-	menu_implementacion()
+	menu_implementacion
 
 
