@@ -8,10 +8,14 @@ import pprint as pp
 # Valores para el grafo: vertices, aristas, posicion
 class display_floyd_warshall():
     def main():
-        V = ['A', 'B', 'C', 'D', 'E', 'F']
-        E = [('A', 'B', 3), ('A', 'F', 5), ('C', 'B', 2), ('B', 'C', 2), ('B', 'E', 15), ('C', 'E', 4),('C', 'D', 8), ('D', 'C', 8), ('E', 'F', 3),  ('F', 'A', 5), ('F', 'B', 10)]
-        pos = {'A': [1, 1], 'B': [1, 2], 'C': [1, 3], 'D': [3, 3], 'E': [3, 2], 'F': [3, 1]}
-        num_nodes = 6
+        V = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+        E = [('A', 'B', 3), ('A', 'F', 5), ('C', 'B', 2), ('B', 'C', 2),
+             ('B', 'E', 5), ('C', 'E', 4), ('C', 'D', 8), ('D', 'C', 8),
+             ('E', 'F', 3),  ('F', 'A', 5), ('F', 'B', 10), ('H', 'F', 2),
+             ('F', 'H', 2),  ('H', 'E', 5), ('G', 'E', 1),  ('G', 'C', 9),
+             ('G', 'E', 2), ('E', 'C', 4),  ('E', 'G', 2), ('E', 'B', 1),]
+        pos = {'A': [1, 1], 'B': [1, 2], 'C': [1, 3], 'D': [3, 3], 'E': [2, 2], 'F': [2, 1], 'G': [3, 2], 'H': [3, 1]}
+        num_nodes = 8
 
         # Inicializamos el grafo y lo dibujamos
         G = nx.DiGraph()

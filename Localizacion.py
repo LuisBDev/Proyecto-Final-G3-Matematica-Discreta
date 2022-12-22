@@ -97,18 +97,17 @@ class Localizar():
 class drawFolium():
 	def save_map(coordenadas_area,coordenadas_inicio,coordenadas_destino,area_especifica,medio):
 		G = ox.graph_from_point(coordenadas_area, dist=5000, simplify=True, network_type=medio)
-		origin_point = (coordenadas_inicio[0],coordenadas_inicio[1]) 
-		destination_point = (coordenadas_destino[0],coordenadas_destino[1]) 
+		punto_origen = (coordenadas_inicio[0],coordenadas_inicio[1]) 
+		punto_destino = (coordenadas_destino[0],coordenadas_destino[1]) 
 
-		origin_node = ox.distance.nearest_nodes(G, origin_point[1], origin_point[0]) #nearest_nodes recibe en orden longitud,latitud
-		destination_node = ox.distance.nearest_nodes(G, destination_point[1], destination_point[0])
-		routeFolium = ox.distance.shortest_path(G, origin_node,destination_node)
-		
-		mapatest = ox.plot_route_folium(G, routeFolium, popup_attribute='length',tiles="OpenStreetMap", color='red')
-		mapatest.save(f"{area_especifica}.html")
+		nodo_origen = ox.distance.nearest_nodes(G, punto_origen[1], punto_origen[0]) #nearest_nodes recibe en orden longitud,latitud
+		nodo_destino = ox.distance.nearest_nodes(G, punto_destino[1], punto_destino[0])
+		rutaFolium = ox.distance.shortest_path(G, nodo_origen,nodo_destino)
+
+		mapaFolium = ox.plot_route_folium(G, rutaFolium, popup_attribute='length',tiles="OpenStreetMap", color='red')
+		mapaFolium.save(f"{area_especifica}.html")
 		global area_esp
 		area_esp = area_especifica
-		
 
 	def show_pyqt():
 		display_pyqt.main(area_esp)
