@@ -182,3 +182,12 @@ Luego de haber visualizado background podemos CERRARLO e ir a la tercera opción
         --> 3
 
 ### Finalización del programa.
+
+![image](https://user-images.githubusercontent.com/90058131/209250077-fcfb1120-db59-4516-9413-f2f4f8517696.png)
+![image](https://user-images.githubusercontent.com/90058131/209250116-fcb05b50-693a-4ad2-9710-32bb1885c850.png)
+![image](https://user-images.githubusercontent.com/90058131/209250159-5ed4583a-4e7e-4085-a877-d96385dd41dc.png)
+![image](https://user-images.githubusercontent.com/90058131/209250206-4dda0383-73e5-4c7d-a5d1-e2f51ed4111f.png)
+![image](https://user-images.githubusercontent.com/90058131/209250228-17977884-a6d5-4ca7-9801-672bcd3b47fe.png)
+![image](https://user-images.githubusercontent.com/90058131/209250281-aeceaef1-7bd5-42c7-9b96-c33b56f113dd.png)
+
+
